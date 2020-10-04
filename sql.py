@@ -1,7 +1,7 @@
 from tkinter import*
 from tkinter import filedialog
 import sqlite3 as s
-import 
+import os
 
 scr=Tk()
 def opens(*):
@@ -34,7 +34,7 @@ listbox_F.place(x=0,y=50)
 listbox=Listbox(listbox_F,selectmode='SINGLE',font=('aerial',20,'bold'))
 
 
-listbox
+listbox.pack()
 
 
 def listbox_sel(listbox):
@@ -88,7 +88,7 @@ bt4.place(x=90,y=270)
 w=Label(scr,bg='powder blue',bd=4,fg='black',relief=SUNKEN,text='enter the sql querry',font=('aerial',15,'bold'),width=15)
 w.place(x=450,y=550)
 
-def 
+def sql(q):
     result=c.execute('{}'.format(q.get()))
     client.commit()
     q.delete(0,END)
@@ -101,4 +101,4 @@ sqlquerry_E.place(x=650,y=550)
 bt4=Button(scr,padx=16,pady=1,bd=7,fg='black',font=('aerial',12,'bold'),width=4,text='SAVE',bg='powder blue',command=lambda:sql(sqlquerry_E))
 bt4.place(x=650,y=600)
 
-
+scr.mainloop()
